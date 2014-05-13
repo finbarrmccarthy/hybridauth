@@ -90,7 +90,7 @@ class Hybrid_Providers_LinkedIn extends Hybrid_Provider_Model
 	{
 		try{
 			// http://developer.linkedin.com/docs/DOC-1061
-			$response = $this->api->profile('~:(id,first-name,last-name,public-profile-url,picture-url,email-address,date-of-birth,phone-numbers,summary)');
+			$response = $this->api->profile('~:(id,first-name,last-name,public-profile-url,picture-url,email-address,date-of-birth,phone-numbers,summary,headline,positions,associations,interests,languages, skills,certifications, educations, courses,three-current-positions,three-past-positions,recommendations-received,honors-awards)');
 		}
 		catch( LinkedInException $e ){
 			throw new Exception( "User profile request failed! {$this->providerId} returned an error: $e", 6 );
@@ -114,6 +114,20 @@ class Hybrid_Providers_LinkedIn extends Hybrid_Provider_Model
 			$this->user->profile->photoURL    = (string) $data->{'picture-url'};
 			$this->user->profile->profileURL  = (string) $data->{'public-profile-url'};
 			$this->user->profile->description = (string) $data->{'summary'};
+			
+            		$this->user->profile->headline         	= (string) $data->{'headline'};
+            		$this->user->profile->positions         = (string) $data->{'positions'};
+            		$this->user->profile->associations      = (string) $data->{'associations'};
+            		$this->user->profile->interests         = (string) $data->{'interests'};
+            		$this->user->profile->languages         = (string) $data->{'languages'};
+            		$this->user->profile->skills         	= (string) $data->{'skills'};
+            		$this->user->profile->certifications    = (string) $data->{'certifications'};
+        		$this->user->profile->educations        = (string) $data->{'educations'};
+            		$this->user->profile->courses         	= (string) $data->{'courses'};
+            		$this->user->profile->three-current-positions      = (string) $data->{'three-current-positions'};
+            		$this->user->profile->three-past-positions         = (string) $data->{'three-past-positions'};
+            		$this->user->profile->recommendations-received     = (string) $data->{'recommendations-received'};
+            		$this->user->profile->honors-awards         	   = (string) $data->{'honors-awards'};			
 
 			if( $data->{'phone-numbers'} && $data->{'phone-numbers'}->{'phone-number'} ){
 				$this->user->profile->phone = (string) $data->{'phone-numbers'}->{'phone-number'}->{'phone-number'};
