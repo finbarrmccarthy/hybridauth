@@ -117,18 +117,18 @@ class Hybrid_Providers_LinkedIn extends Hybrid_Provider_Model
 			$this->user->profile->description = (string) $data->{'summary'};
 			
             		$this->user->profile->headline         	= (string) $data->{'headline'};
-            		$this->user->profile->positions         = (string) $data->{'positions'};
-            		$this->user->profile->associations      = (string) $data->{'associations'};
-            		$this->user->profile->interests         = (string) $data->{'interests'};
-            		$this->user->profile->languages         = (string) $data->{'languages'};
-            		$this->user->profile->skills         	= (string) $data->{'skills'};
-            		$this->user->profile->certifications    = (string) $data->{'certifications'};
-        		$this->user->profile->educations        = (string) $data->{'educations'};
-            		$this->user->profile->courses         	= (string) $data->{'courses'};
-            		$this->user->profile->threeCurrentPositions      = (string) $data->{'three-current-positions'};
-            		$this->user->profile->threePastPositions         = (string) $data->{'three-past-positions'};
-            		$this->user->profile->recommendationsReceived     = (string) $data->{'recommendations-received'};
-            		$this->user->profile->honorsAwards         	   = (string) $data->{'honors-awards'};			
+            		$this->user->profile->positions         = (string) json_encode($data->{'positions'});
+            		$this->user->profile->associations      = (string) json_encode($data->{'associations'});
+            		$this->user->profile->interests         = (string) json_encode($data->{'interests'});
+            		$this->user->profile->languages         = (string) json_encode($data->{'languages'});
+            		$this->user->profile->skills         	= (string) json_encode($data->{'skills'});
+            		$this->user->profile->certifications    = (string) json_encode($data->{'certifications'});
+        		$this->user->profile->educations        = (string) json_encode($data->{'educations'});
+            		$this->user->profile->courses         	= (string) json_encode($data->{'courses'});
+            		$this->user->profile->threeCurrentPositions      = (string) json_encode($data->{'three-current-positions'});
+            		$this->user->profile->threePastPositions         = (string) json_encode($data->{'three-past-positions'});
+            		$this->user->profile->recommendationsReceived     = (string) json_encode($data->{'recommendations-received'});
+            		$this->user->profile->honorsAwards         	   = (string)json_encode( $data->{'honors-awards'});			
 
 			if( $data->{'phone-numbers'} && $data->{'phone-numbers'}->{'phone-number'} ){
 				$this->user->profile->phone = (string) $data->{'phone-numbers'}->{'phone-number'}->{'phone-number'};
