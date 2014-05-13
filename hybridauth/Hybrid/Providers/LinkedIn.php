@@ -1,5 +1,6 @@
 <?php
 /*!
+*FMC added extra profile fields
 * HybridAuth
 * http://hybridauth.sourceforge.net | http://github.com/hybridauth/hybridauth
 * (c) 2009-2012, HybridAuth authors | http://hybridauth.sourceforge.net/licenses.html
@@ -90,7 +91,7 @@ class Hybrid_Providers_LinkedIn extends Hybrid_Provider_Model
 	{
 		try{
 			// http://developer.linkedin.com/docs/DOC-1061
-			$response = $this->api->profile('~:(id,first-name,last-name,public-profile-url,picture-url,email-address,date-of-birth,phone-numbers,summary,headline,positions,associations,interests,languages, skills,certifications, educations, courses,three-current-positions,three-past-positions,recommendations-received,honors-awards)');
+			$response = $this->api->profile('~:(id,first-name,last-name,public-profile-url,picture-url,email-address,date-of-birth,phone-numbers,summary,headline,positions,associations,interests,languages,skills,certifications,educations,courses,three-current-positions,three-past-positions,recommendations-received,honors-awards)');
 		}
 		catch( LinkedInException $e ){
 			throw new Exception( "User profile request failed! {$this->providerId} returned an error: $e", 6 );
