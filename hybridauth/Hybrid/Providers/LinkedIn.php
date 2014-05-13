@@ -124,10 +124,10 @@ class Hybrid_Providers_LinkedIn extends Hybrid_Provider_Model
             		$this->user->profile->certifications    = (string) $data->{'certifications'};
         		$this->user->profile->educations        = (string) $data->{'educations'};
             		$this->user->profile->courses         	= (string) $data->{'courses'};
-            		$this->user->profile->three-current-positions      = (string) $data->{'three-current-positions'};
-            		$this->user->profile->three-past-positions         = (string) $data->{'three-past-positions'};
-            		$this->user->profile->recommendations-received     = (string) $data->{'recommendations-received'};
-            		$this->user->profile->honors-awards         	   = (string) $data->{'honors-awards'};			
+            		$this->user->profile->threeCurrentPositions      = (string) $data->{'three-current-positions'};
+            		$this->user->profile->threePastPositions         = (string) $data->{'three-past-positions'};
+            		$this->user->profile->recommendationsReceived     = (string) $data->{'recommendations-received'};
+            		$this->user->profile->honorsAwards         	   = (string) $data->{'honors-awards'};			
 
 			if( $data->{'phone-numbers'} && $data->{'phone-numbers'}->{'phone-number'} ){
 				$this->user->profile->phone = (string) $data->{'phone-numbers'}->{'phone-number'}->{'phone-number'};
